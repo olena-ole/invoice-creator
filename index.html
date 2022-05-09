@@ -16,18 +16,18 @@
     </header>
     <main>
         <div class="main-container">
-            <div class="wrapper-btns">
-                <button class="service-btn">Wash Car: $10</button>
+            <div class="wrapper-btns" id="wrapper-btns">
+                <!-- <button class="service-btn">Wash Car: $10</button>
                 <button class="service-btn">Mow Lawn: $20</button>
-                <button class="service-btn">Pull Weeds: $30</button>
+                <button class="service-btn">Pull Weeds: $30</button> -->
             </div>
             <div class="wrapper-tasks">
                 <p class="table-head"><span>TASK</span><span>TOTAL</span></p>
-                <ul class="service-list">
+                <ul class="service-list" id="service-list">
                     <li class="service-list-item">
                         <div class="service">
                             <span class="service-name">Wash Car</span>
-                            <span class="service-remove">Remove</span>
+                            <span class="service-remove" data-id="0">Remove</span>
                         </div>
                         <div class="cost">
                             <span class="cost-currency">$</span>
@@ -37,7 +37,7 @@
                     <li class="service-list-item">
                         <div class="service">
                             <span class="service-name">Mow Lawn</span>
-                            <span class="service-remove">Remove</span>
+                            <span class="service-remove" data-id="1">Remove</span>
                         </div>
                         <div class="cost">
                             <span class="cost-currency">$</span>
@@ -47,7 +47,7 @@
                     <li class="service-list-item">
                         <div class="service">
                             <span class="service-name">Pull Weeds</span>
-                            <span class="service-remove">Remove</span>
+                            <span class="service-remove" data-id="2">Remove</span>
                         </div>
                         <div class="cost">
                             <span class="cost-currency">$</span>
@@ -72,5 +72,6 @@
             </button>
         </div>
     </main>
+    <script src="index.js"></script>
 </body>
 </html>

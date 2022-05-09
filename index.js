@@ -14,7 +14,7 @@ const totalEl = document.getElementById('total');
 let totalCost = 0;
 totalEl.innerHTML = totalCost;
 
-//<button class="service-btn">Wash Car: $10</button>
+const sendBtn = document.getElementById('send-btn');
 
 function renderButtons(arr) {
     let finalString = '';
@@ -29,8 +29,8 @@ wrapperBtns.innerHTML = renderButtons(data);
 wrapperBtns.addEventListener('click', function(e) {
     if (e.target && e.target.tagName === 'BUTTON') {
         addService(e.target.id);
-    }
-})
+    };
+});
 
 function addService(id) {
     data.forEach(el => {
@@ -50,6 +50,36 @@ function addService(id) {
                     </div>
                 </li>
             `;
-        }
-    })
+        };
+    });
+};
+
+serviceList.addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('service-remove')) {
+        const id = e.target.getAttribute('data-id');
+        const li = e.target.parentNode.parentNode;
+        removeLiEl(id, li)
+    };
+});
+
+function removeLiEl(liId,liEl) {
+    let serviceCost;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id == liId) {
+            data[i].ordered = false;
+            serviceCost = data[i].cost;
+        };
+    };
+    totalCost -= serviceCost;
+    totalEl.innerHTML = totalCost;
+    serviceList.removeChild(liEl);
+};
+
+sendBtn.addEventListener('click', reset);
+
+function reset() {
+    totalCost = 0;
+    totalEl.innerHTML = totalCost;
+    serviceList.innerHTML = '';
+    alert("Thanks for your order! The operator will contact you in a few minutes!")
 }

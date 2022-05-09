@@ -1,6 +1,6 @@
 'use strict';
 
-const data = [
+let data = [
     {service: "Wash car", cost: 10, id: 0, ordered: false},
     {service: "Mow Lawn", cost: 20, id: 1, ordered: false},
     {service: "Pull Weeds", cost: 30, id: 2, ordered: false}
@@ -81,5 +81,9 @@ function reset() {
     totalCost = 0;
     totalEl.innerHTML = totalCost;
     serviceList.innerHTML = '';
+    data = data.map(({service, cost, id}) => {
+        return {service, cost, id, ordered: false};
+    });
+    console.log(data)
     alert("Thanks for your order! The operator will contact you in a few minutes!")
 }
